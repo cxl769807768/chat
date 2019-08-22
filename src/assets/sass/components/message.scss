@@ -1,0 +1,305 @@
+@mixin translate {
+  transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+
+@mixin rotate($deg:0) {
+  transform: rotate($deg);
+  -ms-transform: rotate($deg);
+  -moz-transform: rotate($deg);
+  -webkit-transform: rotate($deg);
+  -o-transform: rotate($deg);
+}
+
+.th-message {
+  position: relative;
+  .messagebox {
+    width: 100%;
+    background: #f6f8fc;
+    padding: 20px;
+    .th-pulldown {
+      text-align: center;
+      width: 100%;
+      line-height: 60px;
+      height: 60px;
+      color: #888;
+    }
+    .pbtn {
+      margin-top: 50px;
+      height: 50px;
+    }
+    .message-item {
+      width: 100%;
+      position: relative;
+      padding: 0px 50px;
+      margin-bottom: 20px;
+      .headimg {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        border-radius: 50%;
+        display: block;
+      }
+      &.isimg {
+        .mtext {
+          background: none!important;
+          padding: 0px;
+          &:before {
+            display: none;
+          }
+          img {
+            margin: 0px;
+            display: block;
+            max-width: 150px;
+            max-height: 150px;
+          }
+        }
+      }
+      .mtext {
+        padding: 10px 15px;
+        border-radius: 10px;
+        display: inline-block;
+        position: relative;
+        text-align: left;
+        word-break: break-all;
+        line-height: 30px;
+        img {
+          margin-top: -12px;
+        }
+      }
+      &.default-item {
+        .headimg {
+          display: none;
+        }
+        .mtext {
+          padding: 10px 15px;
+          font-size: 14px;
+          border-radius: 10px;
+          width: 100%;
+          text-align: center;
+          color: #888;
+          line-height: 25px;
+        }
+      }
+      &.msg-item {
+        .headimg {
+          display: none;
+        }
+        .mtext {
+          padding: 10px 15px;
+          background: #fff;
+          font-size: 14px;
+          border-radius: 10px;
+          width: 100%;
+          text-align: center;
+          color: #888;
+          line-height: 25px;
+        }
+      }
+      &.people-item {
+        text-align: right;
+        padding-right: 60px;
+        padding-top: 5px;
+        .headimg {
+          right: 0px;
+          left: auto;
+        }
+        .mtext {
+          color: #fff;
+          background: #4a93ec;
+          &:before {
+            content: "";
+            background: url("../../images/peopleBubble.png") top right no-repeat;
+            position: absolute;
+            width: 10px;
+            right: -10px;
+            height: 50px;
+            top: 0px;
+          }
+        }
+      }
+      &.doc-item {
+        padding-left: 60px;
+        padding-top: 5px;
+        .mtext {
+          background: #fff;
+          color: #666;
+          &:before {
+            content: "";
+            background: url("../../images/docBubble.png") 0px -15px no-repeat;
+            position: absolute;
+            width: 10px;
+            left: -10px;
+            height: 50px;
+            top: 0px;
+          }
+        }
+      }
+    }
+  }
+  .inputbox {
+    height: 60px;
+    width: 100%;
+    padding: 10px 80px 10px 45px;
+    border: #dfdfdf solid 1px;
+    position: relative;
+    &.textShow {
+      padding: 3px 80px 3px 45px;
+      height: 46px;
+    }
+    .usetexttitle {
+      font-size: 16px;
+      height: 38px;
+      line-height: 38px;
+      text-align: center;
+      margin-right: -35px;
+    }
+    .usetexthidebox {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      font-size: 14px;
+      color: #666666;
+      @include translate;
+      &:active {
+        color: #4a93ec
+      }
+    }
+    .usetext {
+      margin-left: -35px;
+      height: 38px;
+      &.hide-emoticon {
+        margin-right: -35px;
+        .icon-add {
+          right: 10px;
+        }
+      }
+      .textbtn {
+        height: 38px;
+        line-height: 38px;
+        color: #888;
+        font-size: 16px;
+      }
+      .icon-add {
+        left: auto;
+        right: 42px;
+      }
+      .icon-face {
+        right: 10px;
+        font-size: 27px;
+      }
+    }
+    .icon-add {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      @include translate;
+      font-size: 25px;
+      color: #666666;
+    }
+    .icon-face {
+      position: absolute;
+      right: 90px;
+      top: 50%;
+      @include translate;
+      font-size: 25px;
+      color: #666666;
+      z-index: 1;
+    }
+    [class^=icon-].isopen:before {
+      color: #4a93ec;
+      content: "\E94B";
+      display: inline-block;
+      @include rotate(45deg);
+    }
+    .messageinput {
+      height: 40px;
+      width: 100%;
+      background: #efefef;
+      box-shadow: none;
+      border: none;
+      border-radius: 5px;
+      padding: 10px;
+      line-height: 20px;
+      outline: none;
+      font-size: 14px;
+      padding-right: 40px;
+    }
+    .sendbtn {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      width: 60px;
+      height: 40px;
+      font-size: 14px;
+    }
+  }
+  .textbox {
+    padding: 0px;
+    height: 175px;
+    .btnbox {
+      padding: 10px;
+      .textbtn {
+        height: 40px;
+        line-height: 40px;
+      }
+    }
+    textarea {
+      box-sizing: border-box;
+      resize: none;
+      box-shadow: none;
+      border: none;
+      width: 100%;
+      height: 122px;
+      border-radius: 5px;
+      outline: none;
+      padding: 12px 15px;
+      font-size: 16px;
+      line-height: 20px;
+      margin: 0px;
+    }
+  }
+  .facebox {
+    display: flex;
+    padding: 10px;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    .faceitem {
+      display: block;
+      margin: 5px;
+    }
+    .vux-emotion {
+      width: 24px;
+      height: 24px;
+    }
+  }
+  .funcbox {
+    height: 175px;
+    background: #FAFAFA;
+    padding: 15px;
+    width: 100%;
+    overflow: hidden;
+    .funcimg {
+      display: block;
+      margin: 0px auto;
+      width: 42px;
+      margin-bottom: 5px;
+    }
+    .funclist {
+      width: 25%;
+      text-align: center;
+      float: left;
+      height: 70px;
+      font-size: 10px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+  }
+}
